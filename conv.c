@@ -4,13 +4,14 @@
 ** File description:
 ** converts in given base
 */
+#include<stddef.h>
+#include<stdlib.h>
 
-char **conv(char *base, char *res)
+char *conv(char *base, char *res)
 {
     int i = 0;
     char *conved = NULL;
     int len = my_strlen(res);
-    int j = 0;
 
     conved = malloc(sizeof(len));
     while (res[i] != '\0') {
