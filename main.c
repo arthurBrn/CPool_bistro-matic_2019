@@ -9,6 +9,7 @@
 void  my_putstr(char const *);
 int   my_strlen(char const *);
 int   my_atoi(char const *);
+void  print_help(void);
 
 static char  *get_expr(unsigned int size)
 {
@@ -52,6 +53,8 @@ int             main(int ac, char **av)
     unsigned int size;
     char *expr;
 
+    if (av[1] == "-h")
+        print_help();
     if (ac != 4) {
         my_putstr("Usage: ");
         my_putstr(av[0]);
