@@ -6,11 +6,12 @@
 
 SRC	=	conv.c\
 		print_help.c\
+		infin_add.c\
 		main.c
 
 CC	=	gcc
 
-CFLAGS	=	-W -Wall -pipe -I./include/
+CFLAGS	=	-W -Wall -pipe -I./include/ -g -Og
 
 OBJ	=	$(SRC:%.c=%.o)
 

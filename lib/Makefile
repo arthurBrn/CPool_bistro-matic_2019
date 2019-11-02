@@ -18,7 +18,13 @@ SRC	=	my_putchar.c\
 		my_do_op.c\
 		my_to_char.c\
 		my_revstr.c\
-		find_regular_sign.c
+		find_regular_sign.c\
+		my_number_shift.c\
+		my_revstr2.c\
+		my_find_sign.c\
+		find_begin.c\
+		my_strcmp.c\
+		my_str_isnum.c
 
 CFLAGS	=	-I../include/
 

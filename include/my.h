@@ -50,3 +50,7 @@ int find_regular_sign(char c);
 int search_parenthesis_opening(char const *str, int i);
 int search_parenthesis_ending(char const *str);
 char *find_expr_in_par(char const *str);
+void my_revstr2(unsigned char **str);
+void my_number_shift(unsigned char **resptr);
+int my_find_sign(char *av);
+int find_begin(char *av);

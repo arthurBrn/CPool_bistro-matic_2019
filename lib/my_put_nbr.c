@@ -7,7 +7,7 @@
 
 void my_putchar(char c);
 
-int my_put_nbr(int nb)
+int my_put_nbr(char nb)
 {
     int nb2[9] = {0};
     int i = 0;

@@ -5,6 +5,8 @@
 ** returns a number sent to the functions as a string
 */
 
+#include <stdlib.h>
+
 int my_getnbr(char const *str)
 {
     int i = 0;
