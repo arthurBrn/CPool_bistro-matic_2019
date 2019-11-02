@@ -8,9 +8,9 @@
 #include <stdlib.h>
 #include "my.h"
 
-char *my_to_char(int expression)
+char *my_to_char(int expression, int calc_part_size)
 {
-    char *final_str = malloc(sizeof(char) * 1000);
+    char *final_str = malloc(sizeof(char) * (calc_part_size));
     int i = 0;
     int flag = 0;
 
@@ -21,7 +21,9 @@ char *my_to_char(int expression)
         if (expression == 10)
             flag = 1;
     }
-    if (!(flag == 1))
+    if (flag == 1)
+        final_str[i] = (expression + 48);
+    else
         final_str[i] = (expression + 48);
 
     return (my_revstr(final_str));
