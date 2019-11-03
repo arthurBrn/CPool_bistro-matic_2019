@@ -85,19 +85,17 @@ char *eval_expr(char const *base, char const *ops, char const *expr, unsigned in
     int index = 0;
     char *str_holder;
 
-    my_putstr(expr);
     while (expr[index] != '\0') {
         if ((expr[index] == ')') && (search_parenthesis_opening(expr, expr[index]) != -1)){
-            my_putstr("IN FIRST IF");
             str_holder = concat_strings(expr, find_expr_in_par(expr), search_parenthesis_opening(expr, index) ,index);
             expr = str_holder;
             index = 0;
         }
         index++;
     }
+    index = 0;
     while (expr[index] != '\0') {
         if (find_priori_sign(expr[index]) == 1) {
-            my_putstr("IN SECOND IF");
             str_holder = find_concerned_chars(expr, index);
             expr = str_holder;
             index = 0;
@@ -107,7 +105,6 @@ char *eval_expr(char const *base, char const *ops, char const *expr, unsigned in
     index = 0;
     while (expr[index] != '\0') {
         if (find_regular_sign(expr[index]) == 1) {
-            my_putstr("IN LAST IF");
             str_holder = find_concerned_chars(expr, index);
             expr = str_holder;
             index = 0;

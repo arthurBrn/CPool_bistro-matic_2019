@@ -10,7 +10,7 @@
 #include <stdlib.h>
 
 int search_parenthesis_ending(char const *str);
-int search_parenthesis_openning(char const *str, int i);
+int search_parenthesis_opening(char const *str, int i);
 
 Test(search_parenthesis_ending, str_w_brackets_at_end)
 {
@@ -46,39 +46,39 @@ Test(search_parenthesis_ending, str_w_no_brackets)
     cr_assert_eq(res, -1);
 }
 
-Test(search_parenthesis_openning, str_w_brackets_at_end_open)
+Test(search_parenthesis_opening, str_w_brackets_at_end_open)
 {
     char const *str = "2+(3+3)";
     int i = 6;
-    int res = search_parenthesis_openning(str, i);
+    int res = search_parenthesis_opening(str, i);
 
     cr_assert_eq(res, 2);
 
 }
 
-Test(search_parenthesis_ending, str_w_brackets_at_beginning_open)
+Test(search_parenthesis_opening, str_w_brackets_at_beginning_open)
 {
     char const *str = "(3+3)";
     int i = 4;
-    int res = search_parenthesis_openning(str, i);
+    int res = search_parenthesis_opening(str, i);
 
     cr_assert_eq(res, 0, "got %d expected %d", res, 0);
 }
 
-Test(search_parenthesis_ending, str_w_brackets_in_middle_open)
+Test(search_parenthesis_opening, str_w_brackets_in_middle_open)
 {
     char const *str = "2+(3+3)+2";
     int i = 6;
-    int res = search_parenthesis_openning(str, i);
+    int res = search_parenthesis_opening(str, i);
 
     cr_assert_eq(res, 2);
 }
 
-Test(search_parenthesis_openning, str_w_no_brackets_open)
+Test(search_parenthesis_opening, str_w_no_brackets_open)
 {
     char const *str = "2+3+3";
     int i = -1;
-    int res = search_parenthesis_openning(str, i);
+    int res = search_parenthesis_opening(str, i);
 
     cr_assert_eq(res, -1);
 }
