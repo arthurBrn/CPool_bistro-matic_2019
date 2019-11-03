@@ -12,7 +12,7 @@
 int calc_ret(int res, int i, unsigned char **resptr)
 {
     int ret = 0;
-    
+
     if (res >= 10) {
         res = res - 10;
         ret = 1;
@@ -72,7 +72,7 @@ char retrun_sign(char *av1, char *av2)
 
 int addition(char **av, unsigned char **resptr, int sign)
 {
-    int last1 = my_strnlen(av[1], 0) - 1; 
+    int last1 = my_strnlen(av[1], 0) - 1;
     int last2 = my_strnlen(av[2], 0) - 1;
     int i = 0;
     int val1 = 0;

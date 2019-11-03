@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "my.h"
 
-int find_open_par(char const *str, int i)
+int open_par(char const *str, int i)
 {
     int str_len = my_strlen(str);
 
@@ -38,7 +38,7 @@ char *find_expr_in_par(char const *str)
 {
     int i = 0;
     int index2 = find_end_par(str);
-    int index1 = find_open_par(str, index2);
+    int index1 = open_par(str, index2);
     char *a = malloc(sizeof(char) * (index2 - index1) + 1);
     int index_first_par = index1;
 

@@ -30,8 +30,8 @@ char *conc_str(char const *str, char *calc_part, int start, int end)
     int str_two_index = 0;
     char *res_str = return_res(calc_part);
     int res_str_len = my_strlen(res_str);
-    int new_len = ((my_strlen(str) - my_strlen(calc_part)) +my_strlen(res_str));
-    char *str_two = malloc(sizeof(char) * (new_len + 1));
+    int newlen = ((my_strlen(str) - my_strlen(calc_part)) + my_strlen(res_str));
+    char *str_two = malloc(sizeof(char) * (newlen + 1));
 
     while (str[str_index] != '\0') {
         if (str_index < start) {
@@ -77,12 +77,12 @@ char *find_concerned_chars(char const *str, int index_sign)
 char *eval_expr(char const *base, char const *ops, char const *expr, unsigned int size)
 {
     int index = 0;
-    char *newstr;
+    char *str;
 
     while (expr[index] != '\0') {
-        if ((expr[index] == ')') && (find_open_par(expr, expr[index]) != -1)) {
-            newstr = conc_str(expr, find_expr_in_par(expr), find_open_par(expr,index), index);
-            expr = newstr;
+        if ((expr[index] == ')') && (open_par(expr, expr[index]) != -1)) {
+            str = conc_str(expr, find_expr_in_par(expr), open_par(expr,index), index);
+            expr = str;
             index = 0;
         }
         index++;
@@ -90,8 +90,8 @@ char *eval_expr(char const *base, char const *ops, char const *expr, unsigned in
     index = 0;
     while (expr[index] != '\0') {
         if (find_priori_sign(expr[index]) == 1) {
-            newstr = find_concerned_chars(expr, index);
-            expr = newstr;
+            str = find_concerned_chars(expr, index);
+            expr = str;
             index = 0;
         }
         index++;
@@ -99,11 +99,11 @@ char *eval_expr(char const *base, char const *ops, char const *expr, unsigned in
     index = 0;
     while (expr[index] != '\0') {
         if (find_regular_sign(expr[index]) == 1) {
-            newstr = find_concerned_chars(expr, index);
-            expr = newstr;
+            str = find_concerned_chars(expr, index);
+            expr = str;
             index = 0;
         }
         index++;
     }
-    return (newstr);
+    return (str);
 }

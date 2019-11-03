@@ -9,13 +9,14 @@ SRC	=	../eval_expr.c\
 		test_my_to_char.c\
 		test_my_do_op.c\
 		test_my_revstr.c\
-		test_parenthesis.c\
 		test_my_concat_strings.c\
 		test_nbr_of_sign.c\
 		test_cut_str_one_sign.c\
 		test_cut_str_several_signs.c\
 		test_return_res.c\
 		test_eval_expr_2.c\
+
+#		test_parenthesis.c\
 
 CFLAGS	=	-I../include/
 

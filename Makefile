@@ -5,9 +5,9 @@
 ## create exe
 
 SRC	=	print_help.c\
-		infin_add.c\
 		eval_expr.c\
 		main.c\
+#infin_add.c\
 
 CC	=	gcc
 
