@@ -24,7 +24,10 @@ SRC	=	my_putchar.c\
 		my_find_sign.c\
 		find_begin.c\
 		my_strcmp.c\
-		my_str_isnum.c
+		my_str_isnum.c\
+		cut_str_one_sign.c\
+		cut_str_several_signs.c\
+		nbr_of_sign.c\
 
 CFLAGS	=	-I../include/
 

@@ -11,28 +11,18 @@
 
 char *return_res(char *part_to_calc)
 {
-    int sign_index = 0;
-    int str_index = 0;
-    int i = 0;
-    int af_sign = 0;
-    int bf_sign = 0;
-    char *bef_sign = malloc(sizeof(char) * my_strlen(part_to_calc));
-    char *aft_sign = malloc(sizeof(char) * my_strlen(part_to_calc));
+    char *res;
 
-    while (my_char_num(part_to_calc[i]) == 1) {
-        bef_sign[i] = part_to_calc[i];
-        i++;
+    if (nbr_of_sign(part_to_calc) == 84)
+        return (84);
+    if (nbr_of_sign(part_to_calc) > 1) {
+        res = cut_str_several_signs(part_to_calc);
+    } else if (nbr_of_sign(part_to_calc) <= 0) {
+        return (part_to_calc);
+    } else {
+        res = cut_str_one_sign(part_to_calc);
     }
-    bf_sign = my_atoi(bef_sign);
-    sign_index = i;
-    i++;
-    while (my_char_num(part_to_calc[i]) == 1) {
-        aft_sign[str_index] = part_to_calc[i];
-        str_index++;
-        i++;
-    }
-    af_sign = my_atoi(aft_sign);
-    return (my_do_op(part_to_calc, sign_index, bf_sign, af_sign));
+    return (res);
 }
 
 char *concat_strings(char const *str, char *calc_part, int start, int end)
@@ -93,13 +83,13 @@ char *find_concerned_chars(char const *str, int index_sign)
 char *eval_expr(char const *base, char const *ops, char const *expr, unsigned int size)
 {
     int index = 0;
-    int res = 0;
     char *str_holder;
 
     my_putstr(expr);
     while (expr[index] != '\0') {
-        if ((expr[index] == ')') && (search_parenthesis_openning(expr, expr[index]) != -1)){
-            str_holder = concat_strings(expr, find_expr_in_par(expr), search_parenthesis_openning(expr, index) ,index);
+        if ((expr[index] == ')') && (search_parenthesis_opening(expr, expr[index]) != -1)){
+            my_putstr("IN FIRST IF");
+            str_holder = concat_strings(expr, find_expr_in_par(expr), search_parenthesis_opening(expr, index) ,index);
             expr = str_holder;
             index = 0;
         }
@@ -107,7 +97,17 @@ char *eval_expr(char const *base, char const *ops, char const *expr, unsigned in
     }
     while (expr[index] != '\0') {
         if (find_priori_sign(expr[index]) == 1) {
-            my_putstr("WE HERE");
+            my_putstr("IN SECOND IF");
+            str_holder = find_concerned_chars(expr, index);
+            expr = str_holder;
+            index = 0;
+        }
+        index++;
+    }
+    index = 0;
+    while (expr[index] != '\0') {
+        if (find_regular_sign(expr[index]) == 1) {
+            my_putstr("IN LAST IF");
             str_holder = find_concerned_chars(expr, index);
             expr = str_holder;
             index = 0;

@@ -4,8 +4,10 @@
 ** File description:
 ** converts in given base
 */
-#include<stddef.h>
-#include<stdlib.h>
+
+#include <stddef.h>
+#include <stdlib.h>
+#include "my.h"
 
 char *conv(char *base, char *res)
 {
@@ -15,7 +17,7 @@ char *conv(char *base, char *res)
 
     conved = malloc(sizeof(len));
     while (res[i] != '\0') {
-        conved[i] = base[res[i]-48];
+        conved[i] = (base[res[i]] - 48);
     }
     return conved;
 }

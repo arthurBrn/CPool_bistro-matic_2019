@@ -7,7 +7,8 @@
 SRC	=	conv.c\
 		print_help.c\
 		infin_add.c\
-		main.c
+		eval_expr.c\
+		main.c\
 
 CC	=	gcc
 
@@ -21,7 +22,7 @@ all:		$(NAME)
 
 $(NAME):	$(OBJ)
 		$(MAKE) -C ./lib
-		$(CC) -o $(NAME) $(OBJ) -L./lib -lmy
+		$(CC) -o $(NAME) $(OBJ) -L./lib -lmy $(CFLAGS)
 
 clean:
 		rm -f $(OBJ)

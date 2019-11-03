@@ -13,13 +13,10 @@ SRC	=	test_eval_expr_2.c\
 		test_return_res.c\
 		test_parenthesis.c\
 		test_my_concat_strings.c\
-		test_nbr_of_sign.c
-
-
-#../eval_expr.c\
-#		eval_expr_test_2.c\
-#		test_eval_expr_return_res.c
-
+		test_nbr_of_sign.c\
+		test_cut_str_one_sign.c\
+		test_cut_str_several_signs.c\
+		test_infin_add.c\
 
 CFLAGS	=	-I../include/
 

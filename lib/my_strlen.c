@@ -5,6 +5,8 @@
 ** Task 03
 */
 
+#include "my.h"
+
 int my_strlen(char const *str)
 {
     int b = 0;
