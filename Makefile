@@ -15,7 +15,7 @@ CFLAGS	=	-W -Wall -pipe -I./include/ -g -Og
 
 OBJ	=	$(SRC:%.c=%.o)
 
-NAME	=	eval_expr
+NAME	=	calc
 
 all:		$(NAME)
 
