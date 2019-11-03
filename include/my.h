@@ -54,3 +54,4 @@ void my_revstr2(unsigned char **str);
 void my_number_shift(unsigned char **resptr);
 int my_find_sign(char *av);
 int find_begin(char *av);
+void print_help(void);
