@@ -33,7 +33,6 @@ char *return_res(char *part_to_calc)
     }
     af_sign = my_atoi(aft_sign);
     return (my_do_op(part_to_calc, sign_index, bf_sign, af_sign));
-//    return (my_do_op(part_to_calc[sign_index], bf_sign, af_sign));
 }
 
 char *concat_strings(char const *str, char *calc_part, int start, int end)
@@ -91,7 +90,6 @@ char *find_concerned_chars(char const *str, int index_sign)
     return (concat_strings(str, calc_part, start_ind_hold, expr_end));
 }
 
-//int eval_expr(char const *str)
 char *eval_expr(char const *base, char const *ops, char const *expr, unsigned int size)
 {
     int index = 0;

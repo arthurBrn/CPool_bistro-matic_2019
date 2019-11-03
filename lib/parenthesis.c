@@ -14,13 +14,11 @@ int search_parenthesis_openning(char const *str, int i)
 
     if (i == -1)
         return (i);
-//        while (str[i] != '(' || str[i] != str[0]) {
     while (str[i] != '(' || i != my_strlen(str)) {
         if (str[i] == '(')
             return (i);
         i--;
     }
-
     return (-1);
 }
 
@@ -29,9 +27,8 @@ int search_parenthesis_ending(char const *str)
     int i = 0;
 
     while (str[i] != '\0') {
-        if (str[i] == ')') {
+        if (str[i] == ')')
             return (i);
-        }
         i++;
     }
     return (-1);

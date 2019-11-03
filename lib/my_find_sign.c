@@ -11,5 +11,5 @@ int my_find_sign(char *av)
 
     if (av[0] == '-')
         sign = sign * -1;
-    return sign;  
+    return sign;
 }

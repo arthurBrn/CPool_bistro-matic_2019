@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** my number shift
 ** File description:
-** shift a string number to the left 
+** shift a string number to the left
 */
 
 void my_number_shift(unsigned char **resptr)
@@ -14,7 +14,5 @@ void my_number_shift(unsigned char **resptr)
         i++;
     }
     i = 0;
-    //if (resptr[0][0] < '1' || resptr[0][0] > '9' || resptr[0][0] != '-')
-      //  my_number_shift(resptr);
     resptr[0][i] = '\0';
 }

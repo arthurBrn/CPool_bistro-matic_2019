@@ -5,6 +5,8 @@
 ** Own atoi function to turn an String to an int
 */
 
+#include "my.h"
+
 int my_atoi(char *str)
 {
     int res = 0;

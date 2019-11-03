@@ -45,7 +45,7 @@ int find_val(int last, int begin, char *av)
 int calc_ret(int res, int i, unsigned char **resptr)
 {
     int ret = 0;
-    
+
     if (res >= 10) {
         res = res - 10;
         ret = 1;
@@ -65,13 +65,12 @@ int who_is_biggest(char **av)
 {
     int begin1 = find_begin(av[1]);
     int begin2 = find_begin(av[2]);
-    //int res = my_strcmp(av[1], av[2], begin1, begin2);
     return 0;
 }
 
 int addition(char **av, unsigned char **resptr) //a séparer ou optimiser
 {
-    int last1 = my_strlen(av[1]) - 1; 
+    int last1 = my_strlen(av[1]) - 1;
     int last2 = my_strlen(av[2]) - 1;
     int i = 0;
     int val1 = 0;

@@ -5,7 +5,7 @@
 ** Task 03
 */
 
-int my_strlen(char const *str);
+# include "my.h"
 
 char *my_revstr(char *str)
 {

@@ -25,6 +25,5 @@ char *my_to_char(int expression, int calc_part_size)
         final_str[i] = (expression + 48);
     else
         final_str[i] = (expression + 48);
-
     return (my_revstr(final_str));
 }

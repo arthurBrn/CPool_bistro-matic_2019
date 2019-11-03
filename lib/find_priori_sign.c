@@ -5,6 +5,8 @@
 ** Return 1 if the char in parameter is either '*' or '/'
 */
 
+#include "my.h"
+
 int find_priori_sign(char c)
 {
     if (c == '*' || c == '/')
