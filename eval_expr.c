@@ -25,7 +25,7 @@ char *return_res(char *part_to_calc)
     return (res);
 }
 
-char *concat_strings(char const *str, char *calc_part, int start, int end)
+char *conc_str(char const *str, char *calc_part, int start, int end)
 {
     int str_index = 0;
     int res_str_index = 0;
@@ -74,40 +74,17 @@ char *find_concerned_chars(char const *str, int index_sign)
     calc_part = malloc(sizeof(char) * ((expr_end - expr_start) + 2));
     calc_part = concat_expr(str, calc_part, expr_start, expr_end);
 
-    return (concat_strings(str, calc_part, start_ind_hold, expr_end));
+    return (conc_str(str, calc_part, start_ind_hold, expr_end));
 }
 
 char *eval_expr(char const *base, char const *ops, char const *expr, unsigned int size)
 {
     int index = 0;
-    char *str_holder;
 
-    while (expr[index] != '\0') {
-        if ((expr[index] == ')') && (find_open_par(expr, expr[index]) != -1)){
-            str_holder = concat_strings(expr, find_expr_in_par(expr), find_open_par(expr, index) ,index);
-            expr = str_holder;
-            index = 0;
-        }
-        index++;
-    }
+    expr = search_for_brackets(expr, index);
     index = 0;
-    while (expr[index] != '\0') {
-        if (find_priori_sign(expr[index]) == 1) {
-            str_holder = find_concerned_chars(expr, index);
-            expr = str_holder;
-            index = 0;
-        }
-        index++;
-    }
+    expr = search_for_priority(expr, index);
     index = 0;
-    while (expr[index] != '\0') {
-        if (find_regular_sign(expr[index]) == 1) {
-            str_holder = find_concerned_chars(expr, index);
-            expr = str_holder;
-            index = 0;
-        }
-        index++;
-    }
-    index = 0;
+    expr = search_for_regulars(expr, index);
     return (expr);
 }
