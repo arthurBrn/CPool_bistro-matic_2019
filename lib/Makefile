@@ -30,6 +30,7 @@ SRC	=	my_putchar.c\
 		nbr_of_sign.c\
 		concat_expr.c\
 		error.c\
+		my_strnlen.c
 
 CFLAGS	=	-I../include/
 
