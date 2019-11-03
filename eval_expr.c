@@ -5,6 +5,7 @@
 ** eval_expr
 */
 
+#include "bistromatic.h"
 #include "my.h"
 #include <stdlib.h>
 
@@ -90,38 +91,31 @@ char *find_concerned_chars(char const *str, int index_sign)
     return (concat_strings(str, calc_part, start_ind_hold, expr_end));
 }
 
-int eval_expr(char const *str)
+//int eval_expr(char const *str)
+char *eval_expr(char const *base, char const *ops, char const *expr, unsigned int size)
 {
     int index = 0;
     int res = 0;
     char *str_holder;
 
-    while (str[index] != '\0') {
-        if ((str[index] == ')') && (search_parenthesis_openning(str, str[index]) != -1)){
-            str_holder = concat_strings(str, find_expr_in_par(str), search_parenthesis_openning(str, index) ,index);
-            str = str_holder;
+    my_putstr(expr);
+    while (expr[index] != '\0') {
+        if ((expr[index] == ')') && (search_parenthesis_openning(expr, expr[index]) != -1)){
+            str_holder = concat_strings(expr, find_expr_in_par(expr), search_parenthesis_openning(expr, index) ,index);
+            expr = str_holder;
+            index = 0;
+        }
+        index++;
+    }
+    while (expr[index] != '\0') {
+        if (find_priori_sign(expr[index]) == 1) {
+            my_putstr("WE HERE");
+            str_holder = find_concerned_chars(expr, index);
+            expr = str_holder;
             index = 0;
         }
         index++;
     }
     index = 0;
-    while (str[index] != '\0') {
-        if (find_priori_sign(str[index]) == 1) {
-            str_holder = find_concerned_chars(str, index);
-            str = str_holder;
-            index = 0;
-        }
-        index++;
-    }
-    index = 0;
-    while (str[index] != '\0') {
-        if (find_regular_sign(str[index]) == 1) {
-            str_holder = find_concerned_chars(str, index);
-            str = str_holder;
-            index = 0;
-        }
-        index++;
-    }
-    res = my_atoi(str);
-    return (res);
+    return (expr);
 }
