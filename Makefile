@@ -4,8 +4,7 @@
 ## File description:
 ## create exe
 
-SRC	=	conv.c\
-		print_help.c\
+SRC	=	print_help.c\
 		infin_add.c\
 		eval_expr.c\
 		main.c\

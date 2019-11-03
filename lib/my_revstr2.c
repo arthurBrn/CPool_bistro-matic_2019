@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-void my_revstr(unsigned char **str)
+void my_revstr2(unsigned char **str)
 {
     int i = 0;
     int j = 0;

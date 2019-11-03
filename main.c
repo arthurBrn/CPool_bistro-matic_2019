@@ -53,6 +53,8 @@ int main(int ac, char **av)
     unsigned int size;
     char *expr;
 
+    error_cases(av);
+//    error_syntaxes();
     if (av[1] == "-h")
         print_help();
     if (ac != 4) {

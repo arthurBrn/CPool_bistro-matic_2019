@@ -61,3 +61,6 @@ char *cut_str_several_signs(char *calc_part);
 void my_number_shift(unsigned char **resptr);
 char *eval_expr(char const *base, char const *ops, char const *expr, unsigned int size);
 char *concat_expr(char const *str, char *part_calc, int start, int end);
+void syntax_error_message(void);
+void error_cases(char **av);
+void must_not_match(char **av);
