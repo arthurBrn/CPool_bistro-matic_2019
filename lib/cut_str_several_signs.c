@@ -12,22 +12,28 @@
 char *cut_str_several_signs(char *calc_part)
 {
     int i = 0;
+    int length = my_strlen(calc_part);
     char *res = malloc(sizeof(char) * my_strlen(calc_part));
 
-    if (nbr_of_sign(calc_part) != 1)
-        return (calc_part);
-    while (calc_part[i] != '\0') {
+    while (length != 0) {
         if (find_priori_sign(calc_part[i]) == 1) {
             res = find_concerned_chars(calc_part, i);
             calc_part = res;
             i = 0;
         }
+        length--;
+        i++;
+    }
+    i = 0;
+    length = my_strlen(calc_part);
+    while (length != 0) {
         if (find_regular_sign(calc_part[i]) == 1) {
             res = find_concerned_chars(calc_part, i);
             calc_part = res;
             i = 0;
         }
+        length--;
         i++;
     }
-    return (res);
+    return (calc_part);
 }

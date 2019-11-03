@@ -42,3 +42,11 @@ Test(nbr_of_sign, string_w_multiple_signs)
 
     cr_assert_eq(res, 3);
 }
+
+Test(nbr_of_sign, string_w_multiple_signs_2)
+{
+    char part_calc[] = {"1*50+5*15"};
+    int res = nbr_of_sign(part_calc);
+
+    cr_assert_eq(res, 3);
+}

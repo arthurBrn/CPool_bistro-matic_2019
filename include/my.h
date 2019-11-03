@@ -60,4 +60,3 @@ char *cut_str_one_sign(char *calc_part);
 char *cut_str_several_signs(char *calc_part);
 void my_number_shift(unsigned char **resptr);
 char *eval_expr(char const *base, char const *ops, char const *expr, unsigned int size);
-char *find_concerned_chars(char const *str, int index_sign);
