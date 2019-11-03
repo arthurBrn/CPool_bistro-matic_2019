@@ -72,11 +72,8 @@ char *find_concerned_chars(char const *str, int index_sign)
     expr_start = index_sign;
     start_ind_hold = expr_start;
     calc_part = malloc(sizeof(char) * ((expr_end - expr_start) + 2));
-    while (expr_start != expr_end + 1) {
-        calc_part[count] = str[expr_start];
-        count++;
-        expr_start++;
-    }
+    calc_part = concat_expr(str, calc_part, expr_start, expr_end);
+
     return (concat_strings(str, calc_part, start_ind_hold, expr_end));
 }
 
@@ -86,8 +83,8 @@ char *eval_expr(char const *base, char const *ops, char const *expr, unsigned in
     char *str_holder;
 
     while (expr[index] != '\0') {
-        if ((expr[index] == ')') && (search_parenthesis_opening(expr, expr[index]) != -1)){
-            str_holder = concat_strings(expr, find_expr_in_par(expr), search_parenthesis_opening(expr, index) ,index);
+        if ((expr[index] == ')') && (find_open_par(expr, expr[index]) != -1)){
+            str_holder = concat_strings(expr, find_expr_in_par(expr), find_open_par(expr, index) ,index);
             expr = str_holder;
             index = 0;
         }

@@ -28,6 +28,7 @@ SRC	=	my_putchar.c\
 		cut_str_one_sign.c\
 		cut_str_several_signs.c\
 		nbr_of_sign.c\
+		concat_expr.c\
 
 CFLAGS	=	-I../include/
 
