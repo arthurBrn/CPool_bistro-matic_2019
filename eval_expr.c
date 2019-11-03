@@ -13,8 +13,6 @@ char *return_res(char *part_to_calc)
 {
     char *res;
 
-    if (nbr_of_sign(part_to_calc) == 84)
-        return (84);
     if (nbr_of_sign(part_to_calc) > 1) {
         res = cut_str_several_signs(part_to_calc);
     } else if (nbr_of_sign(part_to_calc) <= 0) {
@@ -56,7 +54,6 @@ char *conc_str(char const *str, char *calc_part, int start, int end)
 
 char *find_concerned_chars(char const *str, int index_sign)
 {
-    int count = 0;
     int expr_end = 0;
     int expr_start = 0;
     int index_holder = index_sign;
@@ -80,11 +77,33 @@ char *find_concerned_chars(char const *str, int index_sign)
 char *eval_expr(char const *base, char const *ops, char const *expr, unsigned int size)
 {
     int index = 0;
+    char *newstr;
 
-    expr = search_for_brackets(expr, index);
+    while (expr[index] != '\0') {
+        if ((expr[index] == ')') && (find_open_par(expr, expr[index]) != -1)) {
+            newstr = conc_str(expr, find_expr_in_par(expr), find_open_par(expr,index), index);
+            expr = newstr;
+            index = 0;
+        }
+        index++;
+    }
     index = 0;
-    expr = search_for_priority(expr, index);
+    while (expr[index] != '\0') {
+        if (find_priori_sign(expr[index]) == 1) {
+            newstr = find_concerned_chars(expr, index);
+            expr = newstr;
+            index = 0;
+        }
+        index++;
+    }
     index = 0;
-    expr = search_for_regulars(expr, index);
-    return (expr);
+    while (expr[index] != '\0') {
+        if (find_regular_sign(expr[index]) == 1) {
+            newstr = find_concerned_chars(expr, index);
+            expr = newstr;
+            index = 0;
+        }
+        index++;
+    }
+    return (newstr);
 }

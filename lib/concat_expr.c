@@ -16,6 +16,5 @@ char *concat_expr(char const *str, char *calc_part, int start, int end)
         count++;
         start++;
     }
-
     return (calc_part);
 }

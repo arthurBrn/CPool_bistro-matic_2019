@@ -61,6 +61,3 @@ char *cut_str_several_signs(char *calc_part);
 void my_number_shift(unsigned char **resptr);
 char *eval_expr(char const *base, char const *ops, char const *expr, unsigned int size);
 char *concat_expr(char const *str, char *part_calc, int start, int end);
-char *search_for_brackets(char const *str, int index);
-char *search_for_priority(char const *str, int index);
-char *search_for_regulars(char const *str, int index);
